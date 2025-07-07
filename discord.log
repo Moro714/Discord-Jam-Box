@@ -1,0 +1,47 @@
+2025-07-07 19:39:39,152 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-07 19:39:39,153 - discord.client - INFO - logging in using static token
+2025-07-07 19:39:39,709 - utils.db - INFO - Database schema initialized.
+2025-07-07 19:39:39,709 - core.bot - INFO - Database setup hook completed.
+2025-07-07 19:39:39,726 - root - ERROR - An error occurred during bot startup: Extension 'cogs.music_jam' raised an error: ImportError: cannot import name 'get_current_game_session' from 'utils.db' (C:\Users\unaca\Desktop\Discord Bot\utils\db.py)
+Traceback (most recent call last):
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 951, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\unaca\Desktop\Discord Bot\cogs\music_jam.py", line 42, in <module>
+    from services.game_coordinator import GameCoordinator
+  File "C:\Users\unaca\Desktop\Discord Bot\services\game_coordinator.py", line 8, in <module>
+    from utils.db import (
+    ...<5 lines>...
+    )
+ImportError: cannot import name 'get_current_game_session' from 'utils.db' (C:\Users\unaca\Desktop\Discord Bot\utils\db.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\unaca\Desktop\Discord Bot\main.py", line 25, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\unaca\Desktop\Discord Bot\main.py", line 20, in main
+    await bot.start(TOKEN)
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 823, in start
+    await self.login(token)
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 666, in login
+    await self.setup_hook()
+  File "C:\Users\unaca\Desktop\Discord Bot\core\bot.py", line 23, in setup_hook
+    await self.load_extension("cogs.music_jam")
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "c:\Users\unaca\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 954, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.music_jam' raised an error: ImportError: cannot import name 'get_current_game_session' from 'utils.db' (C:\Users\unaca\Desktop\Discord Bot\utils\db.py)
